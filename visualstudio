@@ -1,0 +1,44 @@
+@model IEnumerable<YourProjectName.Models.Insuree>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard - All Quotes</h2>
+
+<table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Calculated Quote</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+        <td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
+        <td>@String.Format("{0:C}", item.Quote)</td>
+    </tr>
+}
+</table>public ActionResult Admin()
+{
+    // Fetches all records from the database to present to the admin view
+    return View(db.Insurees.ToList());
+}# 1. Initialize git in your local project folder
+git init
+
+# 2. Link your local project to the GitHub repository you just created
+# (Replace the URL with your actual GitHub repository URL)
+git remote add origin https://github.com
+
+# 3. Add all your files to the staging environment
+git add .
+
+# 4. Commit your changes
+git commit -m "Complete ASP.NET MVC Entity Framework Assignment Part 3"
+
+# 5. Push your code to GitHub
+git branch -M main
+git push -u origin main
